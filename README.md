@@ -3,7 +3,7 @@ A generalized version of plogue's linux install script that adds support for ato
 
 # How to use
 - Download `plogue-installer.sh` from this repo.
-- Download a Linux build of one of plogue's plugins from [https://www.plogue.com/downloads.html]
+- Download a Linux build of one of plogue's plugins from https://www.plogue.com/downloads.html
 - From the directory containing plogue-installer.sh, run `./plogue-installer.sh --help` to see options.
 
 ## Local Install (Atomic Distros)
