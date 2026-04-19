@@ -2,7 +2,7 @@
 A generalized version of plogue's linux install script that adds support for atomic distros by extracting and installing files into the local user profile. The original Debian and Non-Debian functionality is retained, but is handled by the flags `-i debian` and `-i non-debian` instead of purely being auto-detected by the script. The Debian option will throw an error if it detects that the OS is not actually a Debian-based distro.
 
 # How to use
-- Download plogue-installer.sh from this repo.
+- Download `plogue-installer.sh` from this repo.
 - Download a Linux build of one of plogue's plugins from [https://www.plogue.com/downloads.html]
 - From the directory containing plogue-installer.sh, run `./plogue-installer.sh --help` to see options.
 
