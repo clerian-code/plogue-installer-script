@@ -7,6 +7,7 @@ The Debian option will throw an error if it detects that the OS is not actually 
 
 # How to use
 - Download `plogue-installer.sh` from this repo.
+- Make `plogue-installer.sh` executable by running `chmod +x plogue-installer.sh` from a terminal in the directory with the script.
 - Download a Linux build of one of plogue's plugins from https://www.plogue.com/downloads.html
 - From the directory containing plogue-installer.sh, run `./plogue-installer.sh --help` to see options.
 
