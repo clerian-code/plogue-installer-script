@@ -151,7 +151,7 @@ non_debian_branch() {
 
 	#we want to fake dpkg remember? all that is root:root
 	# DO NOT chown root for local user directories!
-	#sudo chown -R root:root $tmp/
+	sudo chown -R root:root $tmp/
 
     chmod -R o+r $tmp
 
