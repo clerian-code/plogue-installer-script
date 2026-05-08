@@ -150,32 +150,29 @@ non_debian_branch() {
 	#We could have extracted to "/" but this is too dangerous!
 
 	#we want to fake dpkg remember? all that is root:root
-	# DO NOT chown root for local user directories!
-	sudo chown -R root:root $tmp/
+	sudo chown -R root:root $tmp/ 
 
-    chmod -R o+r $tmp
+	echo "Copying required files to /opt/Plogue"
+	sudo rsync -a --info=progress2 $tmp/opt/Plogue/ /opt/Plogue
 
-	echo "Copying required files to /var/opt/Plogue"
-	sudo rsync -a --info=progress2 $tmp/opt/Plogue/ /var/opt/Plogue
+	echo "Copying vst3 plugin into /usr/lib/vst3"
+	sudo rsync -a --info=progress2 $tmp/usr/lib/vst3/ /usr/lib/vst3
 
-	echo "Copying vst3 plugin into $HOME/.vst3"
-	sudo rsync -a --info=progress2 $tmp/usr/lib/vst3/ $HOME/.vst3
+	echo "Copying clap plugin into /usr/lib/clap"
+	sudo rsync -a --info=progress2 $tmp/usr/lib/clap/ /usr/lib/clap
 
-	echo "Copying clap plugin into $HOME/.clap"
-	sudo rsync -a --info=progress2 $tmp/usr/lib/clap/ $HOME/.clap
-
-	echo "Copying '.desktop' integration to $LOCAL_SHARE/applications"
-	sudo rsync -a --info=progress2 $tmp/usr/share/applications/ $LOCAL_SHARE/applications
-
-	echo "Copying Documentation to $LOCAL_SHARE/doc"
-	sudo rsync -a --info=progress2 $tmp/usr/share/doc/ $LOCAL_SHARE/doc
-
-	echo "Copying Icons to $LOCAL_SHARE/icons/hicolor/256x256/apps"
-	sudo rsync -a --info=progress2 $tmp/usr/share/icons/hicolor/256x256/apps/ $LOCAL_SHARE/icons/hicolor/256x256/apps
+	echo "Copying '.desktop' integration to /usr/share/applications"
+	sudo rsync -a --info=progress2 $tmp/usr/share/applications/ /usr/share/applications
+	
+	echo "Copying Documentation to /usr/share/doc"
+	sudo rsync -a --info=progress2 $tmp/usr/share/doc/ /usr/share/doc
+	
+	echo "Copying Icons to /usr/share/icons/hicolor/256x256/apps"
+	sudo rsync -a --info=progress2 $tmp/usr/share/icons/hicolor/256x256/apps/ /usr/share/icons/hicolor/256x256/apps
 
 	echo "Refreshing icons and application caches"
-	sudo gtk-update-icon-cache --force $LOCAL_SHARE/icons/hicolor
-	sudo update-desktop-database $LOCAL_SHARE/applications
+	sudo gtk-update-icon-cache --force /usr/share/icons/hicolor
+	sudo update-desktop-database /usr/share/applications
 
 	echo "Deleting $tmp"
 	sudo rm -rf $tmp
